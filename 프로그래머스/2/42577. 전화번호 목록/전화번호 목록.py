@@ -1,15 +1,14 @@
 def solution(phone_book):
-    answer = True
     phone = {}
-    cnt = 0
     
-    for i in range(len(phone_book)):
-        phone[i] = phone_book[i]
-    
-    phone_list = sorted(phone.values())  
-
-    for i in range(len(phone_list) - 1):
-        if phone_list[i+1].startswith(phone_list[i]): 
-            return False
-    
-    return answer
+    for i in phone_book:
+        phone[i] = 1
+            
+    for nums in phone_book:
+        arr = ""
+        for i in nums:
+            arr += i
+            if arr in phone and arr != nums:
+                return False
+            
+    return True
