@@ -1,15 +1,12 @@
 import sys
 input = sys.stdin.readline
 
-k, l = map(int, input().split()) 
-dict = {}
-for i in range(l):
-  dict[input().strip()] = i
+n,m = map(int, input().split())
+students = {}
+for _ in range(m):
+    student = input().rstrip()
+    if student in students:
+        students.pop(student)
+    students[student] = 1
 
-sorted_dict = sorted(dict.items(), key=lambda x: x[1])
-
-for i in range(k):
-  if i < len(sorted_dict):
-    print(sorted_dict[i][0])
-  else:
-    break
+print(*list(students.keys())[:n], sep="\n")
