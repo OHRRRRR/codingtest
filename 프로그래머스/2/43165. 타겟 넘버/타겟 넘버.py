@@ -1,15 +1,16 @@
 def solution(numbers, target):
     answer = 0
-    leaves = [0] # 모든 계산 결과 담기게 함
+    cal_result= [0]
+    
     for num in numbers:
-        tmp = []
-        for leaf in leaves:
-            tmp.append(leaf + num)
-            tmp.append(leaf - num)
-        leaves = tmp
-    for i in leaves:
+        cal_pm =[]
+        for cal in cal_result:
+            cal_pm.append(cal+num)
+            cal_pm.append(cal-num)
+        cal_result = cal_pm
+        
+    for i in cal_result:
         if i == target:
             answer+=1
+            
     return answer
-
-
